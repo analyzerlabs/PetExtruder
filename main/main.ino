@@ -4,7 +4,7 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-#define PIN_CS_MAX6675 9 // Pin de Arduino al que se conecta la señal CS del MAX6675
+#define PIN_CS_MAX6675 9 
 #define ESPERA_ENTRE_LECTURAS 1000 // Un valor mayor que 220 ms (al menos 250 ms por seguridad)
 
 int temperatura; // Entero en el que se almacenan los datos recibidos desde el MAX6675
