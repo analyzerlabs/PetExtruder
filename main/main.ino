@@ -21,12 +21,7 @@ void setup() {
 
 void loop() {
   //         (COLUMNA, FILA)
-    lcd.setCursor(0, 0);
-    lcd.print("Extrusora PET");
-    lcd.setCursor(0, 1);
-    lcd.print("Temp: ");
-    lcd.setCursor(6, 1);
-    lcd.print((float)temperatura/4.0,DEC);
+   
 }
 
 void getTemperature(){
@@ -40,4 +35,13 @@ void getTemperature(){
     Serial.print((float)temperatura/4.0,DEC); 
     Serial.println(" °C"); 
     delay(ESPERA_ENTRE_LECTURAS); 
+}
+
+void menu(){
+    lcd.setCursor(0, 0);
+    lcd.print("Extrusora PET");
+    lcd.setCursor(0, 1);
+    lcd.print("Temp: ");
+    lcd.setCursor(6, 1);
+    lcd.print((float)temperatura/4.0,DEC);
 }
