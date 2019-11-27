@@ -1,47 +1,17 @@
-#include <LiquidCrystal.h>
-#include <SPI.h> 
 
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-
-#define PIN_CS_MAX6675 9 
-#define ESPERA_ENTRE_LECTURAS 1000 // Un valor mayor que 220 ms (al menos 250 ms por seguridad)
-
-int temperatura; // Entero en el que se almacenan los datos recibidos desde el MAX6675
+#include <SPI.h>          // incluimos la libreria de SPI,  
+#include <LiquidCrystal.h>//incluimos la libreria de LCD16X2
+#include "variables.h"    //incluimos las variables
+#include "sensor.h"    //incluimos las variables
+#include "lcd.h"          //incluimos las funciones generadas para la pantalla
 
 void setup() {
-    pinMode(2,OUTPUT);
-    pinMode(3,OUTPUT);
-    lcd.begin(16, 2);
+    lcdInit();
     Serial.begin(9600); 
-    SPI.begin(); 
-    pinMode(PIN_CS_MAX6675,OUTPUT); 
-    digitalWrite(PIN_CS_MAX6675,HIGH);
+    sensorInit();
 }
 
 void loop() {
-  //         (COLUMNA, FILA)
-   
-}
-
-void getTemperature(){
-    digitalWrite(PIN_CS_MAX6675,LOW);
-    temperatura=SPI.transfer(0); 
-    temperatura<<=8; 
-    temperatura|=SPI.transfer(0); 
-    digitalWrite(PIN_CS_MAX6675,HIGH); 
-    temperatura>>=3; 
-    Serial.print("Temperatura del horno: "); 
-    Serial.print((float)temperatura/4.0,DEC); 
-    Serial.println(" °C"); 
-    delay(ESPERA_ENTRE_LECTURAS); 
-}
-
-void menu(){
-    lcd.setCursor(0, 0);
-    lcd.print("Extrusora PET");
-    lcd.setCursor(0, 1);
-    lcd.print("Temp: ");
-    lcd.setCursor(6, 1);
-    lcd.print((float)temperatura/4.0,DEC);
+  //  (COLUMNA, FILA)
+   extrusion();
 }
