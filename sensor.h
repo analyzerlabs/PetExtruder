@@ -10,9 +10,11 @@ float getTemperature(){
     temperatura|=SPI.transfer(0); 
     digitalWrite(PIN_CS_MAX6675,HIGH); 
     temperatura>>=3; 
-    Serial.print("Temperatura del horno: "); 
-    Serial.print((float)temperatura/4.0,DEC); 
-    Serial.println(" °C"); 
-    delay(ESPERA_ENTRE_LECTURAS); 
     return(1.00*temperatura/4);
 }
+
+float printTemperature(float t){
+    Serial.print("Temperatura de extrusion: "); 
+    Serial.print(t); 
+    Serial.println(" °C"); 
+  }

@@ -7,11 +7,11 @@
 #include "lcd.h"          //incluimos las funciones generadas para la pantalla
 
 void setup() {
-    lcdInit();
     Serial.begin(9600); 
     sensorInit();
     motorInit(),
     resistorInit();
+    lcdInit();
 }
 
 void loop() {

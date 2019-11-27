@@ -1,20 +1,22 @@
 void motorInit(){
-     pinMode(11,OUTPUT);
-     digitalWrite(11,HIGH);
+     pinMode(7,OUTPUT);
+     digitalWrite(7,HIGH);
   }
 void resistorInit(){
-     pinMode(12,OUTPUT);
-     digitalWrite(12,HIGH);
+     pinMode(6,OUTPUT);
+     digitalWrite(6,HIGH);
   }
 void moveMotor(){
-     digitalWrite(11,LOW);
+     Serial.println("****************");
+     Serial.println("Iniciando Motor");
+     digitalWrite(7,LOW);
   }
 void stopMotor(){
-     digitalWrite(11,HIGH);
+     digitalWrite(7,HIGH);
   }
 void startResistor(){
-     digitalWrite(12,LOW);
+     digitalWrite(6,LOW);
   }
 void stopResistor(){
-     digitalWrite(12,HIGH);
+     digitalWrite(6,HIGH);
   }
