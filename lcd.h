@@ -22,19 +22,21 @@ void extrusion(){
    boolean i=0;
    lcd.setCursor(8, 1);
    lcd.print("T: ");
+   unsigned long tc;
    while(true){    //bucle de extrusion incia automaticamente
       if((millis()-t)>300){//condicion cada segundo de los 30 seg
          t = millis();
          float K = getTemperature();
          printTemperature(K);
          
-         if(K > 220)moveMotor();                    
-         if(K >= 240)stopResistor();
-         if(K < 210){
-            startResistor();
-            stopMotor();
+         if(K > 265){
+          moveMotor();                    
          }
-   
+         if(K >= 265)stopResistor();
+         if(K < 230){
+            startResistor(); 
+         }
+         if(K < 200)stopMotor();
          i = !i;                    // cambia el simbolo reloj
          lcd.setCursor(0, 1);
          lcd.write(byte(6+int(i)));  // imprime el simbolo reloj en LCD con movimiento
