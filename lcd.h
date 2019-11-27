@@ -4,7 +4,7 @@ void menuInicio(){       //funcion para mostrar el menu de inicio
   for(int i=0 ; i<16;i++){     //carga de corazones en pantalla
     lcd.setCursor(i,1);        
     lcd.write(byte(1));   
-    delay(100);
+    delay(200);
   }
   delay(500);                 //espera 0.5 segundos
 }
@@ -26,9 +26,9 @@ void extrusion(){
    lcd.print("T: ");
    while((30-(millis()-t)/1000) > 0){    //bucle de inicio de juego pr 30 seg
       if((millis()-t)>500*n){           //condicion cada segundo de los 30 seg
-         getTemperature();
-         if(temperatura >180){
-                     
+         float K = getTemperature();
+         if(K > 220){
+            moveMotor();                    
          }
          n++;                            //retroalimenta la condicion
          unsigned long t_restante = 30 - (millis()-t)/1000;     //calcula el tiempo restante
