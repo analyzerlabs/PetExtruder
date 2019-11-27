@@ -92,10 +92,10 @@ void lcdInit(){
   lcd.begin(16, 2); //Inicializa la pantalla LCD 16x2 CARACTERES
   lcd.createChar(0, centigrados);      //se genera el caracter fuego
   lcd.createChar(1, carga);
-  lcd.createChar(2, termometer);    //se genera el caracter carita feliz
-  lcd.createChar(3, a1);       //se genera el caracter carita triste
-  lcd.createChar(4, a2);    //se genera el caracter pelota arriba
-  lcd.createChar(5, a3);    //se genera el caracter pelota abajo
+  lcd.createChar(2, termometer);    //se genera el caracter termometro
+  lcd.createChar(3, a1);       
+  lcd.createChar(4, a2);    
+  lcd.createChar(5, a3);    
   lcd.createChar(6, reloj1);    //se genera el caracter reloj de arena lleno
   lcd.createChar(7, reloj2);    //se genera el caracter reloj de arena vacio
   menuInicio();                 //se llama a la funcion menu inicio
