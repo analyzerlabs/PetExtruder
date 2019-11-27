@@ -90,7 +90,7 @@ void extrusionInit(){
 
 void lcdInit(){
   lcd.begin(16, 2); //Inicializa la pantalla LCD 16x2 CARACTERES
-  lcd.createChar(0, centigrados);      //se genera el caracter fuego
+  lcd.createChar(0, centigrados);      //se genera el caracter grados centigrados
   lcd.createChar(1, carga);
   lcd.createChar(2, termometer);    //se genera el caracter termometro
   lcd.createChar(3, a1);       
