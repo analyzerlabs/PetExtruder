@@ -16,5 +16,6 @@ void setup() {
 
 void loop() {
   //  (COLUMNA, FILA)
-   extrusion();
+   menuExtrusion();
+   extrusionInit();
 }
